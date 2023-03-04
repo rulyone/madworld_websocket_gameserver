@@ -1,0 +1,13 @@
+package protobuf;
+
+option java_package = "io.uninspired.madworld.core.protocol";
+option java_outer_classname = "GameProtocolMessage";
+
+message GameProtocolMessage {
+    enum Type {
+
+    }
+    required Type type = 1
+    
+
+}

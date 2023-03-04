@@ -1,0 +1,49 @@
+namespace io.uninspired.madworld.core.network.protocol;
+
+enum PacketType : ubyte {
+    TELEPORT,
+    MOVE,
+    JOIN,
+    GRID
+}
+
+struct Vec2 {
+    x: float;
+    y: float;
+}
+
+table PGamePacket {
+    type:PacketType;
+    pTeleport:PTeleport;
+    pMove:PMove;
+    pJoin:PJoin;
+    pGrid:PGrid;
+}
+
+table PTeleport {
+    playerId:int;
+    to:Vec2;
+}
+
+table PMove {
+    playerId:int;
+    to:Vec2;
+}
+
+table PJoin {
+    playerId: int;
+    joinMessage:string;
+}
+
+table PEntity {
+    pos:Vec2;
+    hp:short = 100;
+    mana:short = 100;
+    name:string;
+}
+
+table PGrid {
+    entities:[PEntity];
+}
+
+root_type PGamePacket;
